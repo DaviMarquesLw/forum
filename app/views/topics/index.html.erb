@@ -1,0 +1,45 @@
+<section class="jumbotron text-center">
+  <h1>Fórum R7</h1>
+  <p class="lead">Seja bem vindo ao melhor fórum online</p>
+</section>
+
+<%= flash[:alert] %>
+
+<section class="jumbotron text-center">
+
+<% if @topics.any? %>
+<ul>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Tópico</th>
+        <th scope="col">Data</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <% @topics.each_with_index do |topic, number| %>
+      <tbody>
+        <tr>
+          <td><%= "#{number + 1}." %></td>
+            <td><%= topic.title  %></td>
+          <td><%= topic.created_at.to_s(:post) %></td>
+          <td>
+            <%= link_to 'Responder Comentário', topic_path(topic), 
+                                                class: 'btn btn-secondary' %>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</ul>
+<% else %>
+  <p class="text-center">
+    Ainda não temos nenhum Tópico. Que tal enviar um?
+  </p>
+  <div>
+   <%= link_to 'Novo Tópico', new_topic_path, class: 'btn btn-secondary' %>
+</div>
+<% end %>
+</section>

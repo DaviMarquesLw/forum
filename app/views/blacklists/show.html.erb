@@ -1,0 +1,28 @@
+<section class="jumbotron text-center">
+  <ul>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Tópico</th>
+        <th scope="col">Data</th>
+        <th scope="col">Resposta</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr>
+        <td><%= @blacklist.id %></td>
+        <td><%= @blacklist.word %></td>
+        <td>
+          <%= link_to 'Editar', edit_blacklist_path(@blacklist),
+                                class: 'btn btn-secondary' %>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </ul>
+</section>
+<div>
+   <%= link_to 'Nova Palavra', new_blacklist_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Inicio', root_path, class: 'btn btn-secondary' %>
+</div>

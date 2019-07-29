@@ -1,0 +1,13 @@
+  <% @description.errors.full_messages.each do |message| %>
+    <div class="alert alert-warning" role="alert">
+    <%= message %>
+    </div>
+  <% end %>
+
+<%= form_for @description, :url => {:controller => "descriptions", :action => "create"} do |f| %>
+  <div class="form-group">
+    <%= f.label :desc, 'Novo Comentário' %>
+    <%= f.text_field :desc, class: 'form-control col-md-6' %>
+  </div>
+  <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+<% end %>

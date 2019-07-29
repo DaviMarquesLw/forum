@@ -1,0 +1,44 @@
+<section class="jumbotron text-center">
+  <% if @descriptions.any? %>
+    <ul>
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Tópico</th>
+          <th scope="col">Data</th>
+          <th scope="col">Resposta</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>  
+    <% @descriptions.each_with_index do |description, number| %>
+      <tbody>
+        <tr>
+          <td><%= @topic.id %></td>
+          <td><%= description.created_at.to_s(:post) %></td>
+          <td><%= description.desc %></td>
+          <td>
+            <%= link_to 'Responder Comentário', new_topic_description_path(@topic, description),
+                                                class: 'btn btn-secondary' %>
+          </td>
+        </tr>
+    <% end %>
+      </tbody>
+      </table>
+    </ul>
+  <% else %>
+    <p class="text-center">
+      Ainda não temos nenhuma resposta. Que tal enviar uma?
+    </p>
+    <div>
+      <%= link_to 'Nova Resposta', new_topic_description_path(@topic), class: 'btn btn-secondary' %>
+      <%= link_to 'Voltar', root_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</section>
+<div>
+   <%= link_to 'Nova Resposta', new_topic_description_path(@topic), class: 'btn btn-secondary' %>
+  <%= link_to 'Voltar', root_path, class: 'btn btn-secondary' %>
+</div>
+
+  
+

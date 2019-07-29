@@ -1,0 +1,43 @@
+
+<div>
+<section class="jumbotron text-center">
+  <% if @blacklists.any? %>
+    <ul>
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Palavra</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>  
+    <% @blacklists.each_with_index do |blacklist| %>
+      <tbody>
+        <tr>
+          <td><%= blacklist.id %></td>
+          <td><%= blacklist.word %></td>
+          <td>
+            <%= link_to 'Editar', edit_blacklist_path(blacklist),
+                                  class: 'btn btn-secondary' %>
+          </td>
+        </tr>
+    <% end %>
+      </tbody>
+      </table>
+    </ul>
+  <% else %>
+    <p class="text-center">
+      Ainda não temos nenhuma palavra. Que tal enviar uma?
+    </p>
+    <div>
+      <%= link_to 'Primeira Palavra', new_blacklist_path, 
+                                  class: 'btn btn-secondary' %>
+      <%= link_to 'Inicio', root_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</section>
+<div>
+   <%= link_to 'Nova Palavra', new_blacklist_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Inicio', root_path, class: 'btn btn-secondary' %>
+</div>
+</div>
