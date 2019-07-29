@@ -6,7 +6,6 @@ ruby '2.6.1'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'mini_racer', platforms: :ruby
@@ -26,10 +25,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop'
   gem 'simplecov', require: false, group: :test
+  gem 'sqlite3'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pg'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
